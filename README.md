@@ -30,6 +30,8 @@ datadog_app_key    = "app key"
 yc_token = "token"
 yc_cloud_id = "cloud id"
 yc_folder_id = "folder id"
+app_vm_user = "user"
+ssh_key = "ssh"
 ```
 Файлы необходимо положить в директорию ./terraform
 

@@ -31,3 +31,14 @@ variable "yc_folder_id" {
   type = string
   sensitive = true
 }
+
+variable "app_vm_user" {
+  description = "App VM user"
+  type        = string
+}
+
+variable "ssh_key" {
+  description = "SSH key"
+  type        = string
+  sensitive   = true
+}
