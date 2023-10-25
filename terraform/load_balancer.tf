@@ -1,7 +1,7 @@
 resource "yandex_alb_load_balancer" "balancer" {
-  name        = "load-balancer"
+  name = "load-balancer"
 
-  network_id  = yandex_vpc_network.network-1.id
+  network_id = yandex_vpc_network.network-1.id
 
   allocation_policy {
     location {
@@ -25,7 +25,7 @@ resource "yandex_alb_load_balancer" "balancer" {
         external_ipv4_address {
         }
       }
-      ports = [ 443 ]
+      ports = [443]
     }
     tls {
       default_handler {
@@ -40,11 +40,11 @@ resource "yandex_alb_load_balancer" "balancer" {
 }
 
 resource "yandex_alb_http_router" "router" {
-  name      = "http-router"
+  name = "http-router"
 }
 
 resource "yandex_alb_virtual_host" "virtual-host" {
-  name      = "virtual-host"
+  name           = "virtual-host"
   http_router_id = yandex_alb_http_router.router.id
   route {
     name = "route"
@@ -57,15 +57,15 @@ resource "yandex_alb_virtual_host" "virtual-host" {
 }
 
 resource "yandex_alb_backend_group" "backend-group" {
-  name      = "backend-group"
+  name = "backend-group"
 
   http_backend {
-    name = "http-backend"
-    weight = 1
-    port = 80
+    name             = "http-backend"
+    weight           = 1
+    port             = 80
     target_group_ids = [yandex_alb_target_group.target-group.id]
     healthcheck {
-      timeout = "1s"
+      timeout  = "1s"
       interval = "1s"
       http_healthcheck {
         path = "/ping"
@@ -75,15 +75,15 @@ resource "yandex_alb_backend_group" "backend-group" {
 }
 
 resource "yandex_alb_target_group" "target-group" {
-  name      = "target-group"
+  name = "target-group"
 
   target {
-    subnet_id = yandex_vpc_subnet.subnet-1.id
-    ip_address   = yandex_compute_instance.srv1.network_interface[0].ip_address
+    subnet_id  = yandex_vpc_subnet.subnet-1.id
+    ip_address = yandex_compute_instance.srv1.network_interface[0].ip_address
   }
 
   target {
-    subnet_id = yandex_vpc_subnet.subnet-1.id
-    ip_address   = yandex_compute_instance.srv2.network_interface[0].ip_address
+    subnet_id  = yandex_vpc_subnet.subnet-1.id
+    ip_address = yandex_compute_instance.srv2.network_interface[0].ip_address
   }
 }

@@ -14,7 +14,7 @@ resource "yandex_compute_instance" "srv1" {
 
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet-1.id
-    nat = true
+    nat       = true
   }
 
   metadata = {
@@ -38,7 +38,7 @@ resource "yandex_compute_instance" "srv2" {
 
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet-1.id
-    nat = true
+    nat       = true
   }
 
   metadata = {

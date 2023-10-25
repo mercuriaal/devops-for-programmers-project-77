@@ -1,6 +1,6 @@
 resource "yandex_dns_zone" "zone1" {
-  name = "mercury-zone"
-  zone = "mercurial-learning-app.ru."
+  name   = "mercury-zone"
+  zone   = "mercurial-learning-app.ru."
   public = true
 }
 
