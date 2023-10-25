@@ -18,7 +18,7 @@ resource "yandex_compute_instance" "srv1" {
   }
 
   metadata = {
-    ssh-keys = "mercurial:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "${var.app_vm_user}:${var.ssh_key}"
   }
 }
 
