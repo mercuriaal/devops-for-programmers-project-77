@@ -8,14 +8,6 @@ resource "yandex_alb_load_balancer" "balancer" {
       zone_id   = "ru-central1-a"
       subnet_id = yandex_vpc_subnet.subnet-1.id
     }
-    location {
-      zone_id   = "ru-central1-b"
-      subnet_id = yandex_vpc_subnet.subnet-2.id
-    }
-    location {
-      zone_id   = "ru-central1-c"
-      subnet_id = yandex_vpc_subnet.subnet-3.id
-    }
   }
 
   listener {
