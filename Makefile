@@ -7,6 +7,9 @@ tf-init:
 tf-validate:
 	terraform -chdir=./terraform validate
 
+tf-format:
+	terraform -chdir=./terraform fmt
+
 tf-apply:
 	terraform -chdir=./terraform apply -var-file=secret.datadog.tfvars -var-file=secret.yc.tfvars
 
