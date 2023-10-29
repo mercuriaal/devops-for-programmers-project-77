@@ -9,31 +9,9 @@
 
 [GNU Make](https://www.gnu.org/software/make/#download) 4.3
 
-### Подготовка к работе:
-Для корректной работы терраформу нужно передать следующие файлы с секретами:
-1. secret.backed.tfvars
-
-```commandline
-access_key         = "ydb acces key"
-secret_key         = "ydb secret key"
-dynamodb_endpoint  = "ydb endpoint"
-dynamodb_table     = "table name"
-bucket             = "bucker name"
-```
-2. secret.datadog.tfvars
-```commandline
-datadog_api_key    = "api key"
-datadog_app_key    = "app key"
-```
-3. secret.yc.tfvars
-```commandline
-yc_token = "token"
-yc_cloud_id = "cloud id"
-yc_folder_id = "folder id"
-app_vm_user = "user"
-ssh_key = "ssh"
-```
-Файлы необходимо положить в директорию ./terraform
+### Генерация переменных terraform
+В корневой директории должен лежать файл `.vault-password` с паролем к хранилищу
+Генерация выполняется командой `make generate-tf-vars`
 
 ### Команды для работы с проектом:
 

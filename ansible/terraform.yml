@@ -1,0 +1,12 @@
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - template:
+        src: backend.tfvars.j2
+        dest: '../terraform/secrets.backend2.tfvars'
+    - template:
+        src: datadog.tfvars.j2
+        dest: '../terraform/secrets.datadog2.tfvars'
+    - template:
+        src: yc.tfvars.j2
+        dest: '../terraform/secrets.yc2.tfvars'
