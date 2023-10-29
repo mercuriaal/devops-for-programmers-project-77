@@ -9,6 +9,8 @@
 
 [GNU Make](https://www.gnu.org/software/make/#download) 4.3
 
+[Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 1.6.2
+
 ### Генерация переменных terraform
 В корневой директории должен лежать файл `.vault-password` с паролем к хранилищу
 
